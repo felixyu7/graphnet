@@ -19,7 +19,7 @@ from torch_geometric.data import Data
 from pytorch_lightning import LightningModule
 
 from graphnet.models.components.embedding import FourierPositionEncoder
-from graphnet.models.components.layers import (
+from graphnet.models.components.neptune_layers import (
     AttentionPool,
     NeptuneTransformerEncoder,
     NeptuneTransformerEncoderLayer,
@@ -94,7 +94,7 @@ class PointTransformerEncoder(LightningModule):
             rope_scales: Per-axis rotary frequency scales for
                 `(x, y, z, t)`. Defaults to `[180.0, 180.0, 180.0, 40.0]`.
             rope_base: Rotary frequency span; see
-                :class:`~graphnet.models.components.layers.RoPE4D`.
+                :class:`~graphnet.models.components.neptune_layers.RoPE4D`.
         """
         super().__init__()
         if pool_type not in ("mean", "attention"):
